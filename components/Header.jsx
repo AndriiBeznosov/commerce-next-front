@@ -74,7 +74,7 @@ export default function Header() {
       <Center>
         <Wrapper>
           <Logo href={"/"}> Ecommerce</Logo>
-          <StyledNav active={mobileNavActive}>
+          <StyledNav active={mobileNavActive ? 1 : 0}>
             <NavLink href={"/"}>Home</NavLink>
             <NavLink href={"/products"}>All products</NavLink>
             <NavLink href={"/categories"}>Categories</NavLink>

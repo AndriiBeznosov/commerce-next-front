@@ -4,16 +4,6 @@ import NewProduct from "@/components/NewProduct";
 import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
 
-export default function HomePage({ featuredProduct, newProducts }) {
-  return (
-    <div>
-      <Header />
-      <Featured product={featuredProduct} />
-      <NewProduct products={newProducts} />
-    </div>
-  );
-}
-
 export async function getServerSideProps() {
   const featuredProductId = "64cf78bafcb550af96ae2870";
   await mongooseConnect();
@@ -25,4 +15,14 @@ export async function getServerSideProps() {
       newProducts: JSON.parse(JSON.stringify(newProducts)),
     },
   };
+}
+
+export default function HomePage({ featuredProduct, newProducts }) {
+  return (
+    <div>
+      <Header />
+      <Featured product={featuredProduct} />
+      <NewProduct products={newProducts} />
+    </div>
+  );
 }
